@@ -323,13 +323,13 @@ namespace WindowsFormsApp1
     public class program
     {
         public static string region = "jp";
-        public static string API_KEY = "0665043a-c220-4465-aaf9-7ece21e7df42";
+        public static string API_KEY = "XXXXXXXXXXXXXXXXX";
         public static string summonername;
 
         public static TimeSpan A()
         {
 
-            string uri = $"https://jp1.api.riotgames.com/lol/summoner/v4/summoners/by-name/{summonername}?api_key=RGAPI-abcb0b44-1b73-4df5-80fc-b0afe11fafa1";
+            string uri = $"https://jp1.api.riotgames.com/lol/summoner/v4/summoners/by-name/{summonername}?api_key={API_KEY}";
             GetSummonerId(uri).GetAwaiter().GetResult();
 
             var jsonDes = GetSummonerId(uri).GetAwaiter().GetResult();
@@ -337,7 +337,7 @@ namespace WindowsFormsApp1
             Console.WriteLine(formattedJson);
             String SummonerId = jsonDes.Id;
 
-            string uri1 = $"https://jp1.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/{SummonerId}?api_key=RGAPI-abcb0b44-1b73-4df5-80fc-b0afe11fafa1";
+            string uri1 = $"https://jp1.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/{SummonerId}?api_key={API_KEY}";
             InGame jsonDes1 = GetGameLength(uri1).GetAwaiter().GetResult();
             Console.WriteLine(jsonDes1.gameLength);
             TimeSpan timespan = GetEpochMillis(jsonDes1.gameStartTime);
